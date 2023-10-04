@@ -5,13 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Kuba.unity
+    guid: 1c751fff1ee87cb4c9cba8522f92deab
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d376fed7586054946b70c2fe7b590d94,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 71e5764175cfdfb47b3c338c0333695e,
       type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 60bb9fe4cf958b2479eb4de0dd9fe71d,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c1653b6f9af0ef5408b075ca33c04232,
       type: 2}
