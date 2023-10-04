@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01850bc1ca40a464dbd9ead0fe72c790, type: 3}
+  m_Name: BooksData
+  m_EditorClassIdentifier: 
+  books:
+  - title: Plus brillant que le soleil - Aventures en fiction sonore
+    author: Kodwo Eshun
+    type: Essai
+    averageNote: -1
+    summary: "Un manifeste afrofuturiste enfin traduit en fran\xE7ais.\r\n\r\nObjet
+      mythologique publi\xE9 en 1998 par un jeune critique, Plus brillant que le
+      soleil fait le pari que, si la presse musicale n'a rien \xE0 dire sur l'afrofuturisme,
+      c'est qu'elle ne sait pas en parler.\r\nPour d\xE9crire cette musique visionnaire,
+      guid\xE9e par les nouvelles machines sonores, Kodwo Eshun s'invente ing\xE9nieur
+      de concepts et embrasse le synth\xE9tique jusque dans les mots, \xE0 l'image
+      des exp\xE9rimentateurs dont il explore les mythes et les sons : Miles Davis,
+      Alice Coltrane, Sun Ra, Dr. Octagon, Funkadelic, Drexciya...\r\nArm\xE9 de
+      n\xE9ologismes qui s'arriment \xE0 la science-fiction, il revisite les premiers
+      essais de fission jazz et les hyperrythmes de la jungle, ouvrant une dimension
+      parall\xE8le o\xF9 un hip-hop cosmophonique croise une techno extra-atmosph\xE9rique,
+      un acid despotique.\r\nEshun nous entra\xEEne dans des aventures afrofuturistes
+      en fiction sonore, rejouant l'inconnu et le dynamisme plastique d'une identit\xE9
+      noire en constante construction, qui n'h\xE9rite pas seulement d'une histoire,
+      mais la fa\xE7onne aux confins de la musique."
+    reviews: []
+  - title: "Ocean of Sound - Ambient music, mondes imaginaires et voix de l\u2019\xE9ther"
+    author: David Toop
+    type: Essai
+    averageNote: 4.4
+    summary: "Ocean of sound de David Toop d\xE9verse \xE0 chaque page un flot de
+      sons et d\u2019\xE9vocations sonores, o\xF9 Claude Debussy fait des doubles
+      croches avec Aphex Twin, le Clavier bien temp\xE9r\xE9 s\u2019accorde aux Tambours
+      du Burundi, tandis que le Th\xE9\xE2tre de la Musique \xE9ternelle programme
+      les chants d\u2019oiseaux du Venezuela accompagn\xE9s par les distorsions d\u2019Hendrix
+      ou les boucles infinies de Steve Reich. Ici, la musique est une et multiple,
+      \xE0 travers les r\xE9cits de ses plus importantes figures, au gr\xE9 des rencontres
+      et des voyages qu\u2019a faits David Toop depuis 1949, date de sa naissance
+      en Grande-Bretagne. On y croise Edgar Var\xE8se, Brian Eno, Sun Ra, Erik Satie,
+      Pauline Oliveros, Terry Riley et tout l\u2019imaginaire musical d\u2019un si\xE8cle
+      dont Ocean of sound donne \xE0 entendre la \xAB bande originale \xBB.\r"
+    reviews:
+    - author: Antoine
+      note: 5
+      review: "Voici le r\xE9cit d'un homme qui depuis son enfance n'a qu'une seule
+        obsession: le son. Le livre de David Toop est \xE9crit \xE0 la mani\xE8re
+        d'un journal intime tr\xE8s travaill\xE9 o\xF9 pens\xE9es, souvenirs et exp\xE9riences
+        se succ\xE8dent autour de ce m\xEAme th\xE8me central. Cela passe par, outre
+        la musique; la litt\xE9rature, les arts primitifs et contemporains, la technologie,
+        les mythes anciens et d'autres th\xE8mes improbables.\r\n\r\nDavid Toop prend
+        comme figure centrale la pens\xE9e de Claude Debussy et le fin de si\xE8cle
+        d\xE9cadent fran\xE7ais en passant par le personnage de Des Esseintes de
+        Huysmans, les id\xE9es farfelues d'Erik Satie et les expositions universelles
+        parisiennes. Ce sont pour lui les pr\xE9mices d'un monde qui annon\xE7aient
+        ce qu'on appellera plus tard l'Ambient Music ou un certain art de voyager
+        sur place via diff\xE9rents m\xE9diums.\r\nC'est \xE0 un v\xE9ritable voyage
+        que s'apparente la lecture de ce livre. Il synth\xE9tise de mani\xE8re involontaire
+        l'\xE9pop\xE9e du son \xE0 travers l'histoire qui va des \u0153uvres peintes
+        dans des cavernes r\xE9sonantes \xE0 la d\xE9couverte du chant des baleines
+        dans ses espaces abyssaux. Il \xE9voque surtout beaucoup de tranches de vie
+        essentielles des grands artistes du XX\xE8me si\xE8cle qui nourrissent de
+        vraies r\xE9flexions sur la musique. Ici les cat\xE9gories explosent, Toop
+        r\xE9unit dans sa vision des artistes aussi vari\xE9s tel Miles Davis, Harold
+        Budd, Brian Eno, Sun Ra, John Cage, Jon Hassell, Edgar Var\xE8se, les grands
+        acteurs de la house ou du rap et mille autres cr\xE9ateurs.\r\n\r\nL'id\xE9e
+        principale de cet \xE9crit est de r\xE9v\xE9ler les \"mondes\" qu'\xE9voquent
+        et r\xE9v\xE8lent beaucoup de ces musiques et souligner leur caract\xE8re
+        extatique m\xEAme si elles \xE9volu\xE8rent \xE0 partir d'un monde rationaliste
+        et d\xE9sacralis\xE9. Le ton est s\xE9rieux, po\xE9tis\xE9 parfois et sans
+        parti pris, ce qui rend la lecture tr\xE8s plaisante. La beaut\xE9 de ce
+        livre vient de sa forme plut\xF4t in\xE9dite. A mi-chemin entre le livre
+        d'art, d'histoire et le r\xE9cit de voyage. Profond\xE9ment introspectif..."
+    - author: Antoine
+      note: 5
+      review: 'Dolores maxime amet totam voluptate rerum. Magni ipsum deleniti aut
+        est ducimus odio. Facilis officia iure modi quia dolorum. Omnis aut aut quaerat
+        cupiditate tempora accusantium. Dolor temporibus molestiae cumque eaque eaque
+        iusto et.
+
+
+
+        Consectetur incidunt quae est temporibus ut vel. Cumque
+        voluptatibus autem asperiores quisquam ut. Est maxime perspiciatis non qui
+        voluptatem blanditiis. Maxime assumenda asperiores aut dolor nobis voluptatem
+        quae. Alias quaerat maxime repudiandae. Eligendi voluptates inventore repellat.
+
+
+
+        Ducimus
+        qui iste perspiciatis qui quisquam. Voluptatem omnis deleniti omnis. Tempore
+        fugiat neque pariatur in. Fugit soluta aut illum quia veritatis placeat.
+        Officia earum aperiam non doloremque sint expedita maiores autem. In veniam
+        voluptatem veniam quia nemo sit doloribus provident.'
+  - title: 'Catalogue d''objets introuvables '
+    author: Jacques Carelman
+    type: Beau Livre
+    averageNote: 4.7
+    summary: "DU BON USAGE DE MES OBJETS\r\n\r\nLes activit\xE9s humaines sont innombrables
+      et vari\xE9es.\r\n\r\nCertains d\xE9tournent des avions, d'autres des fonds
+      publics ou la conversation.\r\n\r\nJe pr\xE9f\xE8re, quant \xE0 moi, d\xE9tourner
+      de leur usage courant les objets usuels.\r\n\r\nC'est moins dangereux, plus
+      honn\xEAte et infiniment plus divertissant !\r\n\r\nMes objets, parfaitement
+      inutilisables, sont le contraire de ces gadgets dont notre soci\xE9t\xE9 de
+      consommation est si friande.\r\n\r\nSi on me le demandait, je les qualifierais
+      de po\xE9tiques, hilarants, absurdes, philosophiques, ing\xE9nieux, morbides,
+      pu\xE9rils, profonds, d\xE9risoires...\r\n\r\nLe lecteur serait alors pri\xE9,
+      selon son humeur, ses go\xFBts et sa culture, de biffer les qualificatifs inutiles."
+    reviews:
+    - author: Dayan
+      note: 5
+      review: un classique du genre
+    - author: Parfait
+      note: 5
+      review: "C'est un livre tr\xE8s dr\xF4le et inspirant au petit format poche
+        pratique."
+    - author: Micheline
+      note: 2
+      review: Bof, pas dingo.
+  - title: Blueberry - Tome 1 - Fort Navajo
+    author: "Jean-Michel Charlier (Sc\xE9nario) Jean Giraud (Dessin)"
+    type: "Bande-dessin\xE9e"
+    averageNote: 4.7
+    summary: "Blueberry est affect\xE9 \xE0 Fort Navajo. En cours de chemin il rencontre
+      le Lieutenant Graig et ils tombent sur le ranch des Stanton compl\xE8tement
+      calcin\xE9e et jonch\xE9e des cadavres de ses habitants. Tout porte \xE0 croire
+      qu'il s'agit d'un coup des indiens et le Lieutenant Graig d\xE9cide de suivre
+      leur piste pour d\xE9livrer le fils Stanton qui est entre leurs mains.\r\n\r\nBlueberry
+      va devoir manoeuvrer entre l'inconscience de Graig et la haine des Indiens
+      qui anime le commandant Bascom, bras droit du Colonel Dickson \xE0 Fort Navajo.
+      Quand un rattle-snake entre dans la partie, tout se complique...\r\n\r\nLe
+      lieutenant Blueberry plus jeune que jamais ! Trente ans apr\xE8s leur cr\xE9ation,
+      voici ses premi\xE8res aventures avec de nouvelles couleurs. Jean Giraud, trouvant
+      que ses albums avaient besoin d'une cure de jouvence, souhaitait concr\xE9tiser
+      ce projet depuis longtemps. Claudine Blanc-Dumont s'est attel\xE9e \xE0 la
+      t\xE2che sous l'oeil vigilant du ma\xEEtre.\r\n\r\nDes albums destin\xE9s aux
+      inconditionnels de Fort Navajo mais aussi \xE0 toute une nouvelle g\xE9n\xE9ration
+      qui d\xE9couvrira cette s\xE9rie de Jean-Michel Charlier et Jean Giraud, qui
+      fait d\xE9sormais partie des grands classiques du genre.\r\n\r\nToute la collection
+      des Blueberry parus chez Dargaud b\xE9n\xE9ficiera petit \xE0 petit de cette
+      renaissance."
+    reviews:
+    - author: "herv\xE9 j."
+      note: 5
+      review: "Cet album de Blueberry est une tr\xE8s bonne bande dessin\xE9e "
+    - author: 'Latour07 '
+      note: 5
+      review: "Adieu Jean Giraud alias Moebius, d\xE9c\xE9d\xE9 hier, qui avec son
+        comp\xE8re Jean-Michel Cherlier (disparu en 1989) avait sign\xE9 une magnifique
+        BD au dessin cisel\xE9 \xE0 la plume, pr\xE9cis, aux histoires sachant nous
+        emmener loin dans les r\xEAves de conqu\xEAtes, vers le Grand Ouest.\r\n\r\nLa
+        s\xE9rie \"Blueberry\" est l'une des oeuvres marquantes de l'histoire de
+        la bande dessin\xE9e. Tout amateur de western se doit de l'avoir lue. Quels
+        enchantements pour les passionn\xE9s nous procurent ces \xE9pisodes."
+    - author: Bobby
+      note: 3.5
+      review: Facere inventore consequuntur perspiciatis est perspiciatis. Dolores
+        dignissimos perferendis omnis omnis. Quia labore et voluptates provident
+        nihil. Veritatis mollitia officiis impedit dolor perspiciatis recusandae.
+        Laboriosam praesentium ipsam consequuntur aut. Aut in et neque dolores animi
+        quo et distinctio.
+    - author: PhilDu92
+      note: 2
+      review: Id neque et velit. Dicta molestiae quis maxime porro magnam facere.
+        Harum atque optio deleniti quidem. Consequatur et quia saepe ut.
+  - title: Gantz, tome 1
+    author: Hiroya Oku
+    type: Manga
+    averageNote: 4.4
+    summary: "Ke\xEF Kurono et Masaru Kato, deux lyc\xE9ens comme les autres, se
+      font \xE9craser par une rame de m\xE9tro alors qu'ils aidaient un sans-abri.
+      Pourtant, \xE0 l'instant m\xEAme o\xF9 la vie les quitte, ils se retrouvent
+      dans un \xE9trange appartement en compagnie d'autres personnes venant \xE9galement
+      de \"mourir\". Tandis que tous tentent de comprendre comment ils sont arriv\xE9s
+      l\xE0 et comment en partir, une myst\xE9rieuse sph\xE8re noire appara\xEEt
+      et les somme d'\xE9liminer \"l'homme poireau\"... L'Histoire Hiroya OKU Avec
+      Gantz, Hiroya Oku atteint sa pleine maturit\xE9 d'artiste. Que ce soit au niveau
+      du sc\xE9nario, fouill\xE9 et riche en rebondissements ou au niveau graphique
+      ? o\xF9 l'utilisation de l'ordinateur permet des effets in\xE9dits en la mati\xE8re
+      qui servent son r\xE9cit avec pr\xE9cision ? Gantz est une histoire palpitante
+      o\xF9 le suspense omnipr\xE9sent s'empare du lecteur pour l'emmener dans un
+      monde \xE9trange o\xF9 r\xE9alit\xE9 et fiction se croisent \xE9troitement.
+      Voil\xE9e de myst\xE8re, l'ambiance \xE0 mi-chemin entre Twilight Zone, The
+      Cube et Matrix envo\xFBte litt\xE9ralement tandis que la violence soudaine
+      nous rappelle la cruaut\xE9 du monde r\xE9el !"
+    reviews:
+    - author: BadCar
+      note: 3.5
+      review: Ratione qui est aut delectus temporibus dignissimos itaque quos. Nostrum
+        ea eligendi architecto illum eos sapiente esse officia. Voluptates totam
+        dolorem officia eos. Id exercitationem voluptas eveniet. Necessitatibus est
+        vel recusandae.
+    - author: CraftJackpot
+      note: 4
+      review: 'Accusamus accusamus aliquid nihil doloribus voluptas. Quo alias consequatur
+        et est tenetur et. '
+    - author: FrenchPython
+      note: 1
+      review: Consectetur rerum similique iste. Et sit cumque qui quas qui perferendis.
+        Consequatur voluptatem et unde tempore reiciendis. Labore saepe consequuntur
+        quidem voluptatem et recusandae. Et molestiae a harum. Doloribus nisi asperiores
+        laudantium.
+    - author: GtLegend
+      note: 5
+      review: Id neque et velit. Dicta molestiae quis maxime porro magnam facere.
+        Harum atque optio deleniti quidem. Consequatur et quia saepe ut.
