@@ -853,7 +853,7 @@ MonoBehaviour:
   m_ReferenceImageLibrary: {fileID: 11400000, guid: 7ac5a1a29e0e8f749b619cb2d2992084,
     type: 2}
   m_booksData: {fileID: 11400000, guid: ecc0def0dc800c54cbee9355b651bbb8, type: 2}
-  m_ARInfoPrefab: {fileID: 4465682791397645394, guid: f94c23f6e9a63f8499c89589b1ca1129,
+  m_ARInfoPrefab: {fileID: 3608961345206194532, guid: 4cbecbd3169800a4baeea44f774e0b17,
     type: 3}
   text: {fileID: 940641341}
   scaleFactor: {x: 0, y: 0, z: 0}

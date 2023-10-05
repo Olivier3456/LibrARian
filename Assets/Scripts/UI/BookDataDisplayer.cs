@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class BookDataDisplayer : MonoBehaviour
 {
+    [SerializeField] private GameObject canvas;
     [SerializeField] private RectTransform canvasRectTransform;
     [SerializeField] private CanvasGroup canvasGroup;
     [Space(10)]
-    [SerializeField] private float fullScale = 0.01f;
+    [SerializeField] private float fullScale = 0.00035f;
     [SerializeField] private float scalingDuration = 0.5f;
     [SerializeField] private AnimationCurve curve;
     [Space(10)]
@@ -17,10 +18,13 @@ public class BookDataDisplayer : MonoBehaviour
     [SerializeField] private RatingStarsFiller bestNoteRatingStarsFiller;
     [Space(10)]
     [SerializeField] private TextMeshProUGUI authorTitleText;
+    [SerializeField] private TextMeshProUGUI typeText;
     [SerializeField] private TextMeshProUGUI summaryText;
     //[SerializeField] private TextMeshProUGUI averateNoteText;
-    //[SerializeField] private TextMeshProUGUI bestNoteText;
-    [SerializeField] private TextMeshProUGUI typeText;
+    //[SerializeField] private TextMeshProUGUI bestNoteText;    
+
+    public bool IsActive { get; private set; }
+
 
 
     // Not currently in use.
@@ -32,6 +36,7 @@ public class BookDataDisplayer : MonoBehaviour
         this.bookData = bookData;
 
         authorTitleText.text = $"{bookData.author} - {bookData.title}";
+        typeText.text = bookData.type;
         summaryText.text = bookData.summary;
         averateNotesRatingStarsFiller.SetStarFilling(bookData.averageNote);
         bestNoteRatingStarsFiller.SetStarFilling(bookData.bestNote);
@@ -57,7 +62,7 @@ public class BookDataDisplayer : MonoBehaviour
     private IEnumerator DisappearCoroutine(bool destroyObject = false)
     {
         float scaleState = 0;
-        Vector2 fullScaleVector = new Vector2(fullScale, fullScale);
+        Vector2 fullScaleVector = new Vector2(fullScale, fullScale);        
 
         while (scaleState < 1)
         {
@@ -70,20 +75,30 @@ public class BookDataDisplayer : MonoBehaviour
         canvasRectTransform.localScale = Vector2.zero;
         canvasGroup.alpha = 0;
 
+        IsActive = false;
+
         Debug.Log("[BookDataDisplayer] UI not visible anymore.");
 
         if (destroyObject)
         {
-            Debug.Log("[BookDataDisplayer] this UI game Object is destroyed.");
+            Debug.Log("[BookDataDisplayer] This UI game object is destroyed.");
             Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("[BookDataDisplayer] The UI canvas game object is deactivated.");
+            canvas.SetActive(false);
         }
     }
 
 
     private IEnumerator AppearCoroutine()
     {
+        IsActive = true;
+
         float scaleState = 0;
         Vector2 fullScaleVector = new Vector2(fullScale, fullScale);
+        canvas.SetActive(true);
 
         while (scaleState < 1)
         {
