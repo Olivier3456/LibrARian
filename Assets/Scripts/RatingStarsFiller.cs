@@ -8,24 +8,27 @@ public class RatingStarsFiller : MonoBehaviour
     [Range(0, 5)]
     [SerializeField] private float _rating;
     private int _numberOfStars = 5;
-    private int _previousVal = 0;
+    
+    
+    //private int _previousVal = 0;
 
-    private void Start()
-    {
-        SetStarFilling();
-    }
+    //private void Start()
+    //{
+    //    SetStarFilling();
+    //}
 
-    void Update()
-    {
-        Debug.Log(_ratingStars.fillAmount);
-        if (_previousVal != _rating)
-        {
-            SetStarFilling();
-        }
-    }
+    //void Update()
+    //{
+    //    Debug.Log(_ratingStars.fillAmount);
+    //    if (_previousVal != _rating)
+    //    {
+    //        SetStarFilling(_rating);
+    //    }
+    //}
 
-    private void SetStarFilling()
+    public void SetStarFilling(float value)
     {
+        _rating = value;
         StarFiller(ConvertNote(_rating));
     }
 
@@ -45,7 +48,7 @@ public class RatingStarsFiller : MonoBehaviour
         return finalValue;
     }
 
-    public void StarFiller(float value)
+    private void StarFiller(float value)
     {
         _ratingStars.fillAmount = value;
     }

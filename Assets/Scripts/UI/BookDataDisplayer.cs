@@ -13,32 +13,30 @@ public class BookDataDisplayer : MonoBehaviour
     [SerializeField] private float scalingDuration = 0.5f;
     [SerializeField] private AnimationCurve curve;
     [Space(10)]
+    [SerializeField] private RatingStarsFiller averateNotesRatingStarsFiller;
+    [SerializeField] private RatingStarsFiller bestNoteRatingStarsFiller;
+    [Space(10)]
     [SerializeField] private TextMeshProUGUI authorTitleText;
     [SerializeField] private TextMeshProUGUI summaryText;
-    [SerializeField] private TextMeshProUGUI averateNoteText;
-    [SerializeField] private TextMeshProUGUI bestNoteText;
+    //[SerializeField] private TextMeshProUGUI averateNoteText;
+    //[SerializeField] private TextMeshProUGUI bestNoteText;
     [SerializeField] private TextMeshProUGUI typeText;
 
 
-
+    // Not currently in use.
     private BooksData.BookData bookData;
 
-
-    //private void Start()
-    //{
-    //    //DEBUG
-    //    StartCoroutine(AppearCoroutine());
-    //}
-
-
-    
+        
     public void ReceiveBookDatasAndDisplayUI(BooksData.BookData bookData)
     {
         this.bookData = bookData;
 
         authorTitleText.text = $"{bookData.author} - {bookData.title}";
         summaryText.text = bookData.summary;
-        averateNoteText.text = bookData.averageNote.ToString();
+        averateNotesRatingStarsFiller.SetStarFilling(bookData.averageNote);
+        bestNoteRatingStarsFiller.SetStarFilling(bookData.bestNote);
+
+        Debug.Log("[BookDataDisplayer] Book datas updated");
 
         StartCoroutine(AppearCoroutine());
     }
@@ -56,7 +54,7 @@ public class BookDataDisplayer : MonoBehaviour
     }
 
 
-    private IEnumerator DisappearCoroutine(bool destroyObject = true)
+    private IEnumerator DisappearCoroutine(bool destroyObject = false)
     {
         float scaleState = 0;
         Vector2 fullScaleVector = new Vector2(fullScale, fullScale);
@@ -72,8 +70,11 @@ public class BookDataDisplayer : MonoBehaviour
         canvasRectTransform.localScale = Vector2.zero;
         canvasGroup.alpha = 0;
 
+        Debug.Log("[BookDataDisplayer] UI not visible anymore.");
+
         if (destroyObject)
         {
+            Debug.Log("[BookDataDisplayer] this UI game Object is destroyed.");
             Destroy(gameObject);
         }
     }
@@ -94,5 +95,7 @@ public class BookDataDisplayer : MonoBehaviour
 
         canvasRectTransform.localScale = fullScaleVector;
         canvasGroup.alpha = 1;
+
+        Debug.Log("[BookDataDisplayer] UI displayed.");
     }
 }

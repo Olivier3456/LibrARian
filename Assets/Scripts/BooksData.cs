@@ -20,6 +20,7 @@ public class BooksData : ScriptableObject
         public string author;
         public string type;
         public float averageNote;
+        public float bestNote;
         [TextArea]
         public string summary;
         public BookReview[] reviews;
