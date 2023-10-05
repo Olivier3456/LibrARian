@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -13,9 +14,11 @@ public class ARImageTracker : MonoBehaviour
     [SerializeField]
     XRReferenceImageLibrary m_ReferenceImageLibrary;
     [SerializeField]
-    ScriptableObject m_dataBase;
+    BooksData m_booksData;
     [SerializeField]
     GameObject m_ARInfoPrefab;
+    [SerializeField]
+    Text text; 
 
 
 
@@ -26,8 +29,12 @@ public class ARImageTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_TrackedImageManager = new ARTrackedImageManager();
-        m_TrackedImageManager.referenceLibrary = m_ReferenceImageLibrary;
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        //m_TrackedImageManager.referenceLibrary = m_ReferenceImageLibrary;
+        foreach (var book in m_booksData.books)
+        {
+            text.text += "\n" + book.title;
+        }
     }
 
    private void OnChanged(ARTrackedImagesChangedEventArgs eventArgs)
@@ -35,21 +42,32 @@ public class ARImageTracker : MonoBehaviour
         foreach (var newImage in eventArgs.added)
         {
             // Handle added event
-            if(newImage.referenceImage.name == m_dataBase.name)
+            text.text = newImage.referenceImage.name;
+            foreach (var book in m_booksData.books)
             {
-                GameObject ARBookInfo = Instantiate(m_ARInfoPrefab, newImage.transform);
-
+                //text.text += "\n" + book.title;
+                if (newImage.referenceImage.name.Equals(book.title))
+                {
+                //    //GameObject ARBookInfo = Instantiate(m_ARInfoPrefab, newImage.transform);
+                //    Debug.Log(book.title + " found");
+                    text.text = "found" + book.title;
+                }
             }
+
         }
 
         foreach (var updatedImage in eventArgs.updated)
         {
-            // Handle updated event
+            if(updatedImage.trackingState == TrackingState.Limited)
+            {
+                Destroy(updatedImage.gameObject);
+
+            }
         }
 
         foreach (var removedImage in eventArgs.removed)
         {
-            Destroy(removedImage.GetComponent<Canvas>().gameObject);
+            Destroy(removedImage.gameObject);
         }
     }
 }
