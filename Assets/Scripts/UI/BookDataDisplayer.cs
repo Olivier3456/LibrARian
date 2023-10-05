@@ -7,7 +7,7 @@ using UnityEngine;
 public class BookDataDisplayer : MonoBehaviour
 {
     [SerializeField] private GameObject canvas;
-    [SerializeField] private RectTransform canvasRectTransform;
+    [SerializeField] public RectTransform canvasRectTransform;
     [SerializeField] private CanvasGroup canvasGroup;
     [Space(10)]
     [SerializeField] private float fullScale = 0.00035f;
@@ -28,12 +28,12 @@ public class BookDataDisplayer : MonoBehaviour
 
 
     // Not currently in use.
-    private BooksData.BookData bookData;
+    public BooksData.BookData BookData { get; set; }
 
         
     public void ReceiveBookDatasAndDisplayUI(BooksData.BookData bookData)
     {
-        this.bookData = bookData;
+        this.BookData = bookData;
 
         authorTitleText.text = $"{bookData.author} - {bookData.title}";
         typeText.text = bookData.type;
