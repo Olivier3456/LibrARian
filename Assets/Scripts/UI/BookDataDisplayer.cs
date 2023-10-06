@@ -49,13 +49,17 @@ public class BookDataDisplayer : MonoBehaviour
   
     public void DisplayUI()
     {
-        StartCoroutine(AppearCoroutine());
+        if(!IsActive)
+            StartCoroutine(AppearCoroutine());
     }
 
 
     public void HideUI()
     {
-        StartCoroutine(DisappearCoroutine());
+        Debug.Log("[BookDataDisplayer] Hiding UI");
+
+        if (IsActive)
+            StartCoroutine(DisappearCoroutine());
     }
 
 

@@ -21,12 +21,10 @@ public class ARImageTracker : MonoBehaviour
     [SerializeField]
     Text text;
     [SerializeField]
-    ObjectHider m_Hider;
-    [SerializeField]
     Vector3 scaleFactor;
 
-    private GameObject m_ARInfoGO;
-    private BookDataDisplayer m_BookDataDisplayer;
+    private List<GameObject> m_ARInfoGOs;
+    private Dictionary<string,BookDataDisplayer> m_BookDataDisplayers;
 
     void OnEnable() => m_TrackedImageManager.trackedImagesChanged += OnChanged;
 
@@ -35,8 +33,8 @@ public class ARImageTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_ARInfoGO = Instantiate(m_ARInfoPrefab);
-        m_BookDataDisplayer = m_ARInfoGO.GetComponent<BookDataDisplayer>();
+        m_ARInfoGOs = new List<GameObject>();
+        m_BookDataDisplayers = new Dictionary<string,BookDataDisplayer>();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //m_TrackedImageManager.referenceLibrary = m_ReferenceImageLibrary;
         foreach (var book in m_booksData.books)
@@ -51,6 +49,9 @@ public class ARImageTracker : MonoBehaviour
 
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
+            GameObject go = Instantiate(m_ARInfoPrefab);
+            m_ARInfoGOs.Add(go);
+            m_BookDataDisplayers[trackedImage.referenceImage.name] = go.GetComponent<BookDataDisplayer>();
             Debug.Log("[ARImageTracker] image added");
             UpdateARImage(trackedImage);
         }
@@ -59,30 +60,34 @@ public class ARImageTracker : MonoBehaviour
         {
             //Debug.Log("[ARImageTracker] image updated");
             UpdateARImage(trackedImage);
-            if (GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(Camera.main), BoundsChecker.CalculateBounds(m_BookDataDisplayer.canvasRectTransform)))
-            {
-                //the trackedImage is outside the frustum of the camera so we can hide the element
-                m_BookDataDisplayer.HideUI();
+            //if (GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(Camera.main), BoundsChecker.CalculateBounds(m_BookDataDisplayers[trackedImage.referenceImage.name].canvasRectTransform)))
+            //{
+            //    //the trackedImage is outside the frustum of the camera so we can hide the element
+            //    Debug.Log("[ARImageTracker] hide UI because of frustum");
 
-            }
+            //    m_BookDataDisplayers[trackedImage.referenceImage.name].HideUI();
+
+            //}
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
             Debug.Log("[ARImageTracker] image removed");
             //m_ARInfoPrefab.SetActive(false);
-            m_BookDataDisplayer.HideUI();
+            m_BookDataDisplayers[trackedImage.referenceImage.name].HideUI();
         }
-        
+
     }
 
     private void UpdateARImage(ARTrackedImage trackedImage)
     {
         // Display the name of the tracked image in the canvas
         text.text = trackedImage.referenceImage.name;
-        if (trackedImage.trackingState == TrackingState.None || trackedImage.trackingState == TrackingState.Limited)
+        if (trackedImage.trackingState != TrackingState.Tracking)
         {
-            m_BookDataDisplayer.HideUI();
+            Debug.Log("[ARImageTracker] hide");
+
+            m_BookDataDisplayers[trackedImage.referenceImage.name].HideUI();
         }
         else
         {
@@ -95,13 +100,13 @@ public class ARImageTracker : MonoBehaviour
 
     void AssignGameObject(string name, Vector3 newPosition, Quaternion newRotation)
     {
-        if (m_ARInfoGO != null)
+        if (m_BookDataDisplayers[name] != null)
         {
             Debug.Log("[ARImageTracker] m_ARInfoGO != null");
 
             //m_ARInfoGO.SetActive(true);
-            m_ARInfoGO.transform.position = newPosition;
-            m_ARInfoGO.transform.rotation = newRotation;
+            m_BookDataDisplayers[name].transform.position = newPosition;
+            m_BookDataDisplayers[name].transform.rotation = newRotation;
             //m_ARInfoGO.transform.localScale = scaleFactor;
             foreach (var book in m_booksData.books)
             {
@@ -113,13 +118,13 @@ public class ARImageTracker : MonoBehaviour
                     //Debug.Log("[ARImageTracker] book.title = name");
 
                     //m_ARInfoGO.SetActive(true);
-                    if (!m_BookDataDisplayer.IsActive || m_BookDataDisplayer.BookData.Equals(book))
+                    if (!m_BookDataDisplayers[name].IsActive)
                     {
                         Debug.Log("[ARImageTracker] m_BookDataDisplayer is not active");
 
-                        m_BookDataDisplayer.ReceiveBookDatasAndDisplayUI(book);
-                        m_Hider.bookObjectsToHide.Add(m_BookDataDisplayer);
+                        m_BookDataDisplayers[name].ReceiveBookDatasAndDisplayUI(book);
                     }
+                    break;
                     //m_BookDataDisplayer.DisplayUI();                    
                 }
             }
