@@ -18,8 +18,8 @@ public class ARImageTracker : MonoBehaviour
     BooksData m_booksData;
     [SerializeField]
     GameObject m_ARInfoPrefab;
-    [SerializeField]
-    Text text;
+    //[SerializeField]
+    //Text text;
     [SerializeField]
     Vector3 scaleFactor;
 
@@ -37,10 +37,10 @@ public class ARImageTracker : MonoBehaviour
         m_BookDataDisplayers = new Dictionary<string,BookDataDisplayer>();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //m_TrackedImageManager.referenceLibrary = m_ReferenceImageLibrary;
-        foreach (var book in m_booksData.books)
-        {
-            text.text += "\n" + book.title;
-        }
+        //foreach (var book in m_booksData.books)
+        //{
+        //    text.text += "\n" + book.title;
+        //}
     }
 
     private void OnChanged(ARTrackedImagesChangedEventArgs eventArgs)
@@ -82,7 +82,7 @@ public class ARImageTracker : MonoBehaviour
     private void UpdateARImage(ARTrackedImage trackedImage)
     {
         // Display the name of the tracked image in the canvas
-        text.text = trackedImage.referenceImage.name;
+        //text.text = trackedImage.referenceImage.name;
         if (trackedImage.trackingState != TrackingState.Tracking)
         {
             Debug.Log("[ARImageTracker] hide");

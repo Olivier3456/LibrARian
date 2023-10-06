@@ -83,6 +83,8 @@ namespace EasyUI.Tabs
 
         public void OnTabButtonClicked(int tabIndex)
         {
+            Debug.Log("TabsUI : OnTabButtonClicked");
+
             if (current != tabIndex)
             {
                 if (OnTabChange != null)
