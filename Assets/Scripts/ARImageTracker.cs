@@ -21,6 +21,8 @@ public class ARImageTracker : MonoBehaviour
     [SerializeField]
     Text text;
     [SerializeField]
+    ObjectHider m_Hider;
+    [SerializeField]
     Vector3 scaleFactor;
 
     private GameObject m_ARInfoGO;
@@ -57,6 +59,12 @@ public class ARImageTracker : MonoBehaviour
         {
             //Debug.Log("[ARImageTracker] image updated");
             UpdateARImage(trackedImage);
+            if (GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(Camera.main), BoundsChecker.CalculateBounds(m_BookDataDisplayer.canvasRectTransform)))
+            {
+                //the trackedImage is outside the frustum of the camera so we can hide the element
+                m_BookDataDisplayer.HideUI();
+
+            }
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
@@ -65,17 +73,24 @@ public class ARImageTracker : MonoBehaviour
             //m_ARInfoPrefab.SetActive(false);
             m_BookDataDisplayer.HideUI();
         }
+        
     }
 
     private void UpdateARImage(ARTrackedImage trackedImage)
     {
         // Display the name of the tracked image in the canvas
         text.text = trackedImage.referenceImage.name;
+        if (trackedImage.trackingState == TrackingState.None || trackedImage.trackingState == TrackingState.Limited)
+        {
+            m_BookDataDisplayer.HideUI();
+        }
+        else
+        {
+            // Assign and Place Game Object
+            AssignGameObject(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
 
-        // Assign and Place Game Object
-        AssignGameObject(trackedImage.referenceImage.name, trackedImage.transform.position, trackedImage.transform.rotation);
-
-        Debug.Log($"[ARImageTracker] trackedImage.referenceImage.name: {trackedImage.referenceImage.name}");
+            Debug.Log($"[ARImageTracker] trackedImage.referenceImage.name: {trackedImage.referenceImage.name}");
+        }
     }
 
     void AssignGameObject(string name, Vector3 newPosition, Quaternion newRotation)
@@ -98,11 +113,12 @@ public class ARImageTracker : MonoBehaviour
                     //Debug.Log("[ARImageTracker] book.title = name");
 
                     //m_ARInfoGO.SetActive(true);
-                    if (!m_BookDataDisplayer.IsActive)
+                    if (!m_BookDataDisplayer.IsActive || m_BookDataDisplayer.BookData.Equals(book))
                     {
                         Debug.Log("[ARImageTracker] m_BookDataDisplayer is not active");
 
                         m_BookDataDisplayer.ReceiveBookDatasAndDisplayUI(book);
+                        m_Hider.bookObjectsToHide.Add(m_BookDataDisplayer);
                     }
                     //m_BookDataDisplayer.DisplayUI();                    
                 }
