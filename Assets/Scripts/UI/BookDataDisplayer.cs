@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BookDataDisplayer : MonoBehaviour
 {
@@ -17,17 +18,28 @@ public class BookDataDisplayer : MonoBehaviour
     [SerializeField] private RatingStarsFiller averateNotesRatingStarsFiller;
     [SerializeField] private RatingStarsFiller bestNoteRatingStarsFiller;
     [Space(10)]
-    [SerializeField] private TextMeshProUGUI authorTitleText;
-    [SerializeField] private TextMeshProUGUI typeText;
-    [SerializeField] private TextMeshProUGUI summaryText;
+    //[SerializeField] private TextMeshProUGUI authorTitleText;
+    //[SerializeField] private TextMeshProUGUI typeText;
+    //[SerializeField] private TextMeshProUGUI summaryText;
     //[SerializeField] private TextMeshProUGUI averateNoteText;
     //[SerializeField] private TextMeshProUGUI bestNoteText;    
 
+    [SerializeField] private Text authorTitleText_legacy;
+    [SerializeField] private Text summaryText_legacy;
+    [SerializeField] private Text typeText_legacy;   
+    
     public bool IsActive { get; private set; }
 
 
+    //[SerializeField]
+    //BooksData m_booksData;
+    //private void Start()
+    //{
+    //    ReceiveBookDatasAndDisplayUI(m_booksData.books[0]);
+    //}
 
-    // Not currently in use.
+
+
     public BooksData.BookData BookData { get; set; }
 
         
@@ -35,9 +47,15 @@ public class BookDataDisplayer : MonoBehaviour
     {
         this.BookData = bookData;
 
-        authorTitleText.text = $"{bookData.author} - {bookData.title}";
-        typeText.text = bookData.type;
-        summaryText.text = bookData.summary;
+
+        authorTitleText_legacy.text = $"{bookData.author} - {bookData.title}";
+        typeText_legacy.text = bookData.type;
+        summaryText_legacy.text = bookData.summary;
+
+
+        //authorTitleText.text = $"{bookData.author} - {bookData.title}";
+        //typeText.text = bookData.type;
+        //summaryText.text = bookData.summary;
         averateNotesRatingStarsFiller.SetStarFilling(bookData.averageNote);
         bestNoteRatingStarsFiller.SetStarFilling(bookData.bestNote);
 
