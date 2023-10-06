@@ -27,6 +27,7 @@ public class BookDataDisplayer : MonoBehaviour
     [SerializeField] private Text authorTitleText_legacy;
     [SerializeField] private Text summaryText_legacy;
     [SerializeField] private Text typeText_legacy;   
+    [SerializeField] private Text reviews_legacy;   
     
     public bool IsActive { get; private set; }
 
@@ -47,10 +48,16 @@ public class BookDataDisplayer : MonoBehaviour
     {
         this.BookData = bookData;
 
-
+        reviews_legacy.text = "";
         authorTitleText_legacy.text = $"{bookData.author} - {bookData.title}";
         typeText_legacy.text = bookData.type;
         summaryText_legacy.text = bookData.summary;
+
+        for(int i = 0;i < bookData.reviews.Length; i++)
+        {
+            string review = $"Author: {bookData.reviews[i].author}\nNote:{bookData.reviews[i].note}\nReview:{bookData.reviews[i].review}\n\n";
+            reviews_legacy.text += review;
+        }
 
 
         //authorTitleText.text = $"{bookData.author} - {bookData.title}";
